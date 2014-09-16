@@ -1,4 +1,4 @@
-library(reshape)
+library(reshape2)
 if (!(file.exists("./UCI HAR Dataset/train/X_train.txt")
      && file.exists("./UCI HAR Dataset/test/X_test.txt"))){
  
@@ -32,5 +32,5 @@ merged_subject <- rbind(subject_train,subject_test)
 merged_data["Activity.Name"] <- merged_activity_labels
 merged_data["Subject.Id"] <- merged_subject[,1]
 melted_data <- melt(merged_data,id = c("Subject.Id","Activity.Name") )
-tidy_data <- cast(melted_data, Subject.Id+Activity.Name~variable, mean)
-write.table(tidy_data,file="tidy_data.txt",row.name=FALSE)
+tidy_data <- dcast(melted_data, Subject.Id+Activity.Name~variable, mean)
+write.table(format(tidy_data, scientific=FALSE),file="tidy_data.txt",row.name=FALSE, quote=FALSE)
