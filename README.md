@@ -3,6 +3,8 @@ Introduction
 
 This repository contains a data analysis script (run_analysis.R) that computes mean of the data collected from the accelerometers from the Samsung Galaxy S smartphone. It computes for both the training and test data set. The mean is computed for all the standard deviation and mean variables grouped by subject and activity name. 
 
+Refer the code book CodeBook.md for details on the variable list in the output data set 
+
 Input data
 ===========
 A full description of the input data is available at the site where the data was obtained: 
